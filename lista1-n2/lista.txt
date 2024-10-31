@@ -1,0 +1,139 @@
+#include <stdio.h>
+
+int fatorial(int n)
+{
+    int result;
+    if(n == 0 || n == 1){
+        n = 1;
+    }else {
+        return n * fatorial(n-1);   
+    }
+    
+}
+
+int restoPorSub(int dividendo, int divisor) {
+    int result = dividendo - divisor;
+    if(result < divisor){
+        return result;
+    }
+    restoPorSub(result, divisor);
+}
+
+
+int quocientePorSub(int dividendo, int divisor){
+    int count=0;
+    int result = dividendo - divisor;
+    if(result == 0){
+        result = count;
+    }
+    count ++;
+    printf("count %d", count);
+    
+}
+int main()
+{
+    printf("%d \n", quocientePorSub(10, 2));
+}
+
+EXERCICIO-2
+#include <stdio.h>
+
+
+int reg(int n) {
+    if(n == 0){
+        return 0;
+    }
+    printf("%d \n", n);
+    reg(n - 1);
+}
+
+int bin(int n){
+    int divisor = 2, quoci, resto;
+    
+  
+    if(quoci == 0){
+        return resto;
+    }
+    
+    quoci = n / divisor;
+    resto = n % divisor;
+    bin(quoci);
+    printf("%d", resto);
+}
+
+int main() {
+  bin(10);
+}
+
+EXERCICIO-3
+#include <stdio.h>
+
+void mdc(int a, int b) {
+    if(b == 0){
+       return;
+    }
+    int result = a % b;
+    printf("%d", result);
+    mdc(b, result);
+}
+
+
+int main() {
+    mdc(48, 18);
+    return 0;
+}
+
+
+EXERCICIO-4
+#include <stdio.h>
+
+void  torreHanoi(int discos, char origem, char auxiliar, char destino)
+{
+    if(discos==1){
+        printf("mova o disco 1 de %c para %c \n", origem, destino);
+        count++;
+        return;
+    }
+
+    torreHanoi(discos-1, origem, destino, auxiliar);
+
+    printf("Mova o disco %d de %c para %c\n", discos, origem, destino);
+    count++;
+
+    torreHanoi(discos-1, auxiliar, origem, destino);
+}
+
+int main()
+{
+    
+}
+
+EXERCICIO-5
+#include <stdio.h>
+
+int quantosDigitos(int n)
+{
+    if(n == 0){
+        return 0;
+    }
+    int count = 1;
+    int res = n / 10;
+    quantosDigitos(res);
+    count += 1;
+    return count;
+}
+
+int main()
+{
+    printf("%d", quantosDigitos(10));
+}
+
+EXERCICIO-8
+#include <stdio.h>
+
+int main()
+{
+    int *p, x=5;
+    *p *= 2**p;
+    printf("%d", x);
+}
