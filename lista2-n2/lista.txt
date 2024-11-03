@@ -1,0 +1,97 @@
+EXERCICIO-1
+#include <stdio.h>
+
+int main ()
+{
+    int w[9] = {};
+    int i = 5;
+
+    w[0] = 17;
+    w[i/2] = 9;
+    w[2*i-2] = 95;
+    w[i-1] = w[8]/2;
+    w[i] = w[2];
+    w[i+1] = w[i]+w[i-1];
+    w[w[2]-2] = 78;
+    w[w[i]-1] = w[1]*w[i];
+
+    for(int i = 0; i < 9; i++)
+    {
+        printf("%d", w[i]);
+    }
+}
+
+EXERCICIO-2
+#include <stdio.h>
+
+int main() {
+    int numVector[5];
+    for(int i = 0; i < 5; i++){
+        int num;
+        printf("Digite um numero numero: \n");
+        scanf("%d", &numVector[i]);
+        printf("Numero digitado: %d \n", numVector[i]);
+    }
+    for(int j = 5; j > 0; j--){
+        printf("%d", numVector[j]);
+    }
+}
+
+EXERCICIO-3
+#include <stdio.h>
+
+
+int main ()
+{
+    int valorCedulas[5] = {1, 5, 10, 50, 100};
+    int valor;
+
+    printf("Digite o valor: ");
+    scanf("%d", &valor);
+
+    int valor100 = valor / 100;
+    int mod100 = valor % 100;
+
+    int valor50 = mod100 / 50;
+    int mod50 = valor % 50;
+
+    int valor10 = mod50 / 10;
+    int mod10 = valor % 10;
+
+    int valor5 = mod10 / 5;
+    int mod5 = valor % 5;
+
+    int valor1 = valor / 1;
+    int mod1 = valor % 1;
+
+    printf("Para o valor de R$ %d, são necessárias:\n", valor);
+    printf("%d notas de R$100\n", valor100);
+    printf("%d notas de R$50\n", valor50);
+    printf("%d notas de R$10\n", valor10);
+    printf("%d notas de R$5\n", valor5);
+    printf("%d notas de R$1\n", mod1);
+}
+
+EXERCICIO-4
+#include <stdio.h>
+
+void  torreHanoi(int discos, char origem, char auxiliar, char destino)
+{
+    if(discos==1){
+        printf("mova o disco 1 de %c para %c \n", origem, destino);
+        count++;
+        return;
+    }
+
+    torreHanoi(discos-1, origem, destino, auxiliar);
+
+    printf("Mova o disco %d de %c para %c\n", discos, origem, destino);
+    count++;
+
+    torreHanoi(discos-1, auxiliar, origem, destino);
+}
+
+int main()
+{
+    
+}
