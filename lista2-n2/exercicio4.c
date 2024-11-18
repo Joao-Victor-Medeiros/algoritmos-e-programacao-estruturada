@@ -1,22 +1,30 @@
 #include <stdio.h>
 
-void  torreHanoi(int discos, char origem, char auxiliar, char destino)
+void minmax( int v[], int n)
 {
-    if(discos==1){
-        printf("mova o disco 1 de %c para %c \n", origem, destino);
-        count++;
-        return;
+    v[n];
+    int *min, *max;
+    int maior[n];
+
+    for(int i = 0; i < n; i++){
+        if(v[i] < v[i+1]){
+            min = &v[i];
+            printf("%d \n", *min);
+        }else {
+            max = &v[i];
+            maior[i] = *max;
+            printf("o numero maior %d\n", maior[i]);
+        }
+        for(int i = 0; i < 3; i++){
+            if(maior[i] < maior[i+1]){
+                printf("o menor numero: %d\n", maior[i]);
+            }
+        }
     }
-
-    torreHanoi(discos-1, origem, destino, auxiliar);
-
-    printf("Mova o disco %d de %c para %c\n", discos, origem, destino);
-    count++;
-
-    torreHanoi(discos-1, auxiliar, origem, destino);
 }
 
 int main()
 {
-    
+    int vector[5] = {10, 5, 73, 9, 11};
+    minmax(vector, 5);
 }
