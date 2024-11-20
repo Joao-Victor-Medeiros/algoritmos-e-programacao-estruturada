@@ -1,0 +1,137 @@
+EXERCICIO-1
+#include <stdio.h>
+
+typedef struct {
+    char titulo[45];
+    char autor[45];
+    char editora[45];
+    int ano;
+}LIVRO;
+
+int main() 
+{
+    LIVRO livro = {"crime e castigo", "fiodor dostoievski", "editora 34", 1870};
+    printf("%s %s %s %d\n", livro.titulo, livro.autor, livro.editora, livro.ano);
+}
+
+
+EXERCICIO-2
+#include <stdio.h>
+
+struct complexo {
+    float real;
+    float imag;
+};
+
+struct complexo soma_complexos(struct complexo num1, struct complexo num2) {
+    struct complexo resultado;
+    resultado.real = num1.real + num2.real;
+    resultado.imag = num1.imag + num2.imag;
+    return resultado;
+}
+
+int main() 
+{
+    int num, parteImg;
+    struct complexo nums;
+    printf("Digite um número: ");
+    scanf("%d", &num);
+    parteImg = num * -1;
+    nums.real = num;
+    nums.imag = parteImg;
+}
+
+EXERCICIO-3
+#include <stdio.h>
+#include <math.h>
+
+typedef struct{
+    int x;
+    int y;
+}CARTESIANO;
+
+float distanciaEntrePontos(int x1, int x2, int y1, int y2)
+{
+    int firstSub = x2 - x1;
+    int secondSub = y2 - y1;
+    int root = pow(firstSub, 2) + pow(secondSub, 2);
+    float square = sqrt(root);
+    printf("%f\n", square);
+}
+
+int main() 
+{
+    CARTESIANO p, q;
+    printf("Digite os dois pontos dentro da coordenada A: ");
+    scanf("%d %d", &(p.x), &(p.y));
+    printf("Digite os dois pontos dentro da coordenada B: ");
+    scanf("%d %d", &(q.x), &(q.y));
+    distanciaEntrePontos(p.x, q.x, q.y, p.y);
+}
+EXERCICIO-4
+
+EXERCICIO-5
+#include <stdio.h>
+
+
+typedef struct{
+    int hr;
+    int min;
+    int seg;
+}HORARIO;
+
+int main() 
+{
+    HORARIO horario = {10, 10, 10};
+    printf("%d:%d:%d \n", horario.hr, horario.min, horario.seg);
+    
+}
+
+EXERCICIO-6
+#include <stdio.h>
+
+typedef struct
+{
+	int hora;
+	int min;
+	int seg;
+} HORARIO;
+
+typedef struct
+{
+	int dia;
+	int mes;
+	int ano;
+	HORARIO hora;
+
+} DATA;
+
+typedef struct
+{
+	char origem[45];
+	char destino[45];
+	DATA partida;
+	DATA chegada;
+} VOO;
+
+int main()
+{
+
+	VOO aeroJK[4] = {
+							"Brasília","Congonhas",{8,11,2024,{14,10,00}},{8,11,2024,{15,10,00}},
+							"Brasília","Guarulhos",{8,11,2024,{13,00,00}},{8,11,2024,{14,00,00}}, 
+							"Brasília","Buenos Aires",{9,11,2024,{10,00,00}},{9,11,2024,{14,00,00}},
+							"Brasília","Portugal",{8,11,2024,{17,00,00}},{9,11,2024,{3,00,00}}
+						};
+
+	printf("Origem\t\t\tDestino\t\t\tPartida\t\t\tChegada\n");
+	for(int i=0;i<4;i++)
+	{
+		printf("%s\t->->\t%s\t\t%d/%d/%d %d:%d:%d\t%d/%d/%d %d:%d:%d\n",aeroJK[i].origem, aeroJK[i].destino, aeroJK[i].partida.dia,aeroJK[i].partida.mes, aeroJK[i].partida.ano,
+aeroJK[i].partida.hora.hora,aeroJK[i].partida.hora.min,aeroJK[i].partida.hora.seg,
+aeroJK[i].chegada.dia,aeroJK[i].chegada.mes, aeroJK[i].chegada.ano,
+aeroJK[i].chegada.hora.hora,aeroJK[i].chegada.hora.min,aeroJK[i].chegada.hora.seg);
+	}
+
+
+}
